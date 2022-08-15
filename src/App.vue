@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css);
+@import "~bootstrap/scss/bootstrap";
 :root{
   --title-color : #FA4753;
   --bg-dark : #17181C;
