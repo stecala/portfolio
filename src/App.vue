@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <HeaderComponent />
     <MainComponent />
     <FooterComponent />
@@ -25,5 +25,14 @@ export default {
   --bg-dark : #17181C;
   --light : #FFFFFF;
   --note : #9BA5C9;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#app{
+  background-color: var(--bg-dark);
+  color: var(--light);
 }
 </style>
