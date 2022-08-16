@@ -1,6 +1,5 @@
 <template>
   <footer>
-    VA
   </footer>
 </template>
 

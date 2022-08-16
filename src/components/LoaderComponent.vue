@@ -1,5 +1,5 @@
 <template>
-  <div class="container-logo slide-out-bck-tl" v-if="bootAnimation">
+  <div class="container-logo scale-out-center" v-if="bootAnimation">
       <div class="img-container d-flex align-items-center">
         <img src="/img/SC_logo_white.svg" alt="image logo" class="animation-logo">
         <div class="line-1"></div>
