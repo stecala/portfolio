@@ -3,7 +3,7 @@
     <div class="row position-relative">
       <!-- logo zone -->
       <div class="col-6 logo-container slide-in-bck-top">
-          <img src="/img/SC_logo_white_border.svg" alt="logo image" class="ps-3 pt-3">
+          <img src="/img/SC_logo_white.svg" alt="logo image" class="ps-3 pt-3">
       </div>
 
       <!-- navbar zone -->

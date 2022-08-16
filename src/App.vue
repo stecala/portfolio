@@ -57,5 +57,6 @@ export default {
   background-color: var(--bg-dark);
   color: var(--light);
   min-height: 100vh;
+  overflow: hidden;
 }
 </style>
