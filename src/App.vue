@@ -38,6 +38,5 @@ export default {
 #app{
   background-color: var(--bg-dark);
   color: var(--light);
-  height: 100vh;
 }
 </style>

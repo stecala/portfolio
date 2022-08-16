@@ -18,16 +18,16 @@
         </div>
         <div class="position-absolute hamburger-list" :class="isClicked===true ? 'd-block slide-in-elliptic-right-fwd' : isFirst() ">
             <ul>
-              <li v-for="link in navbarItems" :key="link.id">
+              <li v-for="link in navbarItems" :key="link.id" class="pe-3">
                 <span class="number-navbar">0{{link.id}}.</span>
-                <span>&nbsp;{{link.text}}</span>
+                <span>{{link.text}}</span>
               </li>
             </ul>
         </div>
         <!-- navbar lg -->
-        <div class="d-none d-lg-block navbar-lg-container">
-          <ul class="justify-content-end d-flex no-wrap">
-            <li v-for="link in navbarItems" :key="link.id" class="pe-5">
+        <div class="d-none d-lg-block navbar-lg-container ">
+          <ul class="justify-content-end d-flex no-wrap ">
+            <li v-for="link in navbarItems" :key="link.id" class="pe-5 slide-in-top">
                 <span class="number-navbar">0{{link.id}}.</span>
                 <span>&nbsp;{{link.text}}</span>
             </li>
@@ -89,6 +89,7 @@ export default {
 
 <style scoped lang="scss">
 @import '../assets/style/hamburger-icon.scss';
+@import '../assets/style/animation-hamburger-list.scss';
 
 .logo-container{
   height: 80px;
@@ -98,27 +99,41 @@ export default {
   height: 80px;
   .hamburger-list{
     top: 80px;
-    right: 0;
-    width: 200px;
-    
+    right: 1px;
+    width: 100vw;
+    z-index: 1;
+    background-color: var(--bg-dark);
+    ul{
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      font-weight: 700;
+      li{
+        padding-top: 20px;
+        font-family: 'Inconsolata', monospace;
+        display: inline-block;
+      }
+    }
   }
+}
+
+.number-navbar{
+  color: var(--note);
+  font-weight: 400;
 }
 
 .navbar-lg-container{
   padding-top: 20px;
   ul{
     list-style: none;
-    padding: 0;
+    padding-left: 16px;
     height: 40px;
     font-family: 'Inconsolata', monospace;
     li{
       display: inline-block;
       cursor: pointer;
       font-weight: 700;
-      .number-navbar{
-        color: var(--note);
-        font-weight: 400;
-      }
+      
       &:hover{
         color: var(--title-color);
         transition: all 0.5s ease-in;
@@ -128,78 +143,33 @@ export default {
 }
 
 
-
-.slide-in-elliptic-right-fwd {
-	-webkit-animation: slide-in-elliptic-right-fwd 0.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	animation: slide-in-elliptic-right-fwd 0.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.slide-in-top {
+	-webkit-animation: slide-in-top 0.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-in-top 0.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-@-webkit-keyframes slide-in-elliptic-right-fwd {
+@-webkit-keyframes slide-in-top {
   0% {
-    -webkit-transform: translateX(800px) rotateY(-30deg) scale(0);
-            transform: translateX(800px) rotateY(-30deg) scale(0);
-    -webkit-transform-origin: -100% 50%;
-            transform-origin: -100% 50%;
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
     opacity: 0;
   }
   100% {
-    -webkit-transform: translateX(0) rotateY(0) scale(1);
-            transform: translateX(0) rotateY(0) scale(1);
-    -webkit-transform-origin: -1800px 50%;
-            transform-origin: -1800px 50%;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
     opacity: 1;
   }
 }
-@keyframes slide-in-elliptic-right-fwd {
+@keyframes slide-in-top {
   0% {
-    -webkit-transform: translateX(800px) rotateY(-30deg) scale(0);
-            transform: translateX(800px) rotateY(-30deg) scale(0);
-    -webkit-transform-origin: -100% 50%;
-            transform-origin: -100% 50%;
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
     opacity: 0;
   }
   100% {
-    -webkit-transform: translateX(0) rotateY(0) scale(1);
-            transform: translateX(0) rotateY(0) scale(1);
-    -webkit-transform-origin: -1800px 50%;
-            transform-origin: -1800px 50%;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
     opacity: 1;
   }
 }
 
-.slide-out-elliptic-right-bck {
-	-webkit-animation: slide-out-elliptic-right-bck 0.7s ease-in both;
-	animation: slide-out-elliptic-right-bck 0.7s ease-in both;
-}
-@-webkit-keyframes slide-out-elliptic-right-bck {
-  0% {
-    -webkit-transform: translateX(0) rotateY(0) scale(1);
-            transform: translateX(0) rotateY(0) scale(1);
-    -webkit-transform-origin: -1800px 50%;
-            transform-origin: -1800px 50%;
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateX(1000px) rotateY(-30deg) scale(0);
-            transform: translateX(1000px) rotateY(-30deg) scale(0);
-    -webkit-transform-origin: -100% 50%;
-            transform-origin: -100% 50%;
-    opacity: 1;
-  }
-}
-@keyframes slide-out-elliptic-right-bck {
-  0% {
-    -webkit-transform: translateX(0) rotateY(0) scale(1);
-            transform: translateX(0) rotateY(0) scale(1);
-    -webkit-transform-origin: -1800px 50%;
-            transform-origin: -1800px 50%;
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateX(1000px) rotateY(-30deg) scale(0);
-            transform: translateX(1000px) rotateY(-30deg) scale(0);
-    -webkit-transform-origin: -100% 50%;
-            transform-origin: -100% 50%;
-    opacity: 1;
-  }
-}
 </style>
