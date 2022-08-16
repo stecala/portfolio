@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <HeaderComponent />
-    <MainComponent />
-    <FooterComponent />
+    <LoaderComponent :bootAnimation="bootAnimation" />
+    <HeaderComponent v-if="bootAnimation === false" />
+    <MainComponent v-if="bootAnimation === false" />
+    <FooterComponent v-if="bootAnimation === false" />
   </div>
 </template>
 
@@ -10,11 +11,28 @@
 import HeaderComponent from './components/HeaderComponent.vue'
 import MainComponent from './components/MainComponent.vue'
 import FooterComponent from './components/FooterComponent.vue'
+import LoaderComponent from './components/LoaderComponent.vue'
 export default {
   components: {
     HeaderComponent,
     MainComponent, 
     FooterComponent,
+    LoaderComponent,
+  },
+  data : function(){
+    return{
+      bootAnimation : true,
+    }
+  },
+  methods : {
+    removeLogo(){
+      setTimeout(()=>{
+        this.bootAnimation = false;
+      },5000)
+    }
+  },
+  created() {
+    this.removeLogo()
   }
 }
 </script>
@@ -38,5 +56,6 @@ export default {
 #app{
   background-color: var(--bg-dark);
   color: var(--light);
+  min-height: 100vh;
 }
 </style>

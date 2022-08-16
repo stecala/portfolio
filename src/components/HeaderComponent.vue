@@ -2,9 +2,10 @@
   <header class="container-fluid">
     <div class="row position-relative">
       <!-- logo zone -->
-      <div class="col-6 logo-container">
-          <i class="fa-solid fa-ghost"></i>
+      <div class="col-6 logo-container slide-in-bck-top">
+          <img src="/img/SC_logo_white_border.svg" alt="logo image" class="ps-3 pt-3">
       </div>
+
       <!-- navbar zone -->
       <div class="col-6 container-hamburger-icon position-relative">
         <!-- navbar mobile -->
@@ -93,6 +94,9 @@ export default {
 
 .logo-container{
   height: 80px;
+  img{
+    height: 100%;
+  }
 }
 
 .container-hamburger-icon{
@@ -103,6 +107,7 @@ export default {
     width: 100vw;
     z-index: 1;
     background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--note);
     ul{
       list-style: none;
       padding: 0;
@@ -172,4 +177,32 @@ export default {
   }
 }
 
+.slide-in-bck-top {
+	-webkit-animation: slide-in-bck-top 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-in-bck-top 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes slide-in-bck-top {
+  0% {
+    -webkit-transform: translateZ(700px) translateY(-300px);
+            transform: translateZ(700px) translateY(-300px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bck-top {
+  0% {
+    -webkit-transform: translateZ(700px) translateY(-300px);
+            transform: translateZ(700px) translateY(-300px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
 </style>
