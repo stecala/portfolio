@@ -128,7 +128,7 @@ export default {
 }
 
 .navbar-lg-container{
-  padding-top: 20px;
+  padding-top: 30px;
   ul{
     list-style: none;
     padding-left: 16px;
