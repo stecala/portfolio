@@ -10,24 +10,34 @@
       </ul>
     </div>
 
-    <div class="container-lg puff-in-center">
-      <div class="info-container">
-        <p class="divider mb-3">
-          &#60; &#62;
-        </p>
-        <p class="small-text">Hi, name is </p>
-        <p class="name">Stefano Calarota. </p>
-        <p class="big-description">I'm an in-progress Web Developer.</p>
+    <div class="container-lg puff-in-center container-snap">
+      <div class="small-container"> 
+        <section>
+          <div class="info-container">
+            <p class="divider mb-3">
+              &#60; &#62;
+            </p>
+            <p class="small-text ps-3">Hi, name is </p>
+            <p class="name ps-3">Stefano Calarota. </p>
+            <p class="big-description ps-3">I'm an in-progress Web Developer.</p>
 
-        <p class="text d-none d-lg-block">In my 30s I decided to change my life attending the Boolean Tech Academy course to learn how to became a Full Stack Web Developer.<br>
-          My aim for the near future is to aplly what I studied in these months and <span>make it my job.</span>
-        </p>
-        <p class="text-mobile d-lg-none">In my 30s I decided to change my life attending the Boolean Tech Academy course to learn how to became a Full Stack Web Developer.<br>
-          My aim for the near future is to aplly what I studied in these months and <span>make it my job.</span>
-        </p>
-        <p class="divider mt-5" >
-          &#60;/&#62;
-        </p>
+            <p class="text d-none d-lg-block">In my 30s I decided to change my life attending the Boolean Tech Academy course to learn how to became a Full Stack Web Developer.<br>
+              My aim for the near future is to aplly what I studied in these months and <span>make it my job.</span>
+            </p>
+            <p class="text-mobile d-lg-none ps-3">In my 30s I decided to change my life attending the Boolean Tech Academy course to learn how to became a Full Stack Web Developer.<br>
+              My aim for the near future is to aplly what I studied in these months and <span>make it my job.</span>
+            </p>
+            <p class="divider mt-5" >
+              &#60;/&#62;
+            </p>
+          </div>
+        </section>
+        <section>
+          <h3>Ciao</h3>
+        </section>
+        <section>
+          <h3>come</h3>
+        </section>
       </div>
     </div>
   </main>
@@ -69,8 +79,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../assets/style/slide-in-bottom.scss';
+@import '../assets/style/puff-in.scss';
   main{
-    margin-top: 80px;
+    
     .social-container{
       bottom: 0;
       left: 5%;
@@ -126,75 +138,29 @@ export default {
       }
     }
   }
+  .container-snap{
+    width: 100vw;
+    height: calc(100vh - 120px);
 
-.puff-in-center {
-	-webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-	animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-  animation-delay: .7s;
-}
+    .small-container{
+      width: 100%;
+      height: 100%;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      scrollbar-width: none;
 
-@-webkit-keyframes puff-in-center {
-  0% {
-    -webkit-transform: scale(2);
-            transform: scale(2);
-    -webkit-filter: blur(4px);
-            filter: blur(4px);
-    opacity: 0;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      
+      section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        scroll-snap-align: start;
+      }
+    }
   }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-  }
-}
-@keyframes puff-in-center {
-  0% {
-    -webkit-transform: scale(2);
-            transform: scale(2);
-    -webkit-filter: blur(4px);
-            filter: blur(4px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-  }
-}
-
-
-
-.slide-in-bottom {
-	-webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation-delay: 1s;
-}
-@-webkit-keyframes slide-in-bottom {
-  0% {
-    -webkit-transform: translateY(1000px);
-            transform: translateY(1000px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-bottom {
-  0% {
-    -webkit-transform: translateY(1000px);
-            transform: translateY(1000px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
 </style>
