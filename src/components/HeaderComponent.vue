@@ -17,7 +17,7 @@
               <div class="bar"></div>
             </label>
         </div>
-        <div class="position-absolute hamburger-list" :class="isClicked===true ? 'd-block slide-in-elliptic-right-fwd' : isFirst() ">
+        <div class="position-absolute hamburger-list py-3" :class="isClicked===true ? 'd-block slide-in-elliptic-right-fwd' : isFirst() ">
             <ul>
               <li v-for="link in navbarItems" :key="link.id" class="pe-3">
                 <span class="number-navbar">0{{link.id}}.</span>
@@ -54,12 +54,12 @@ export default {
         },
         {
           id : 2,
-          text : 'Experience',
+          text : 'Skills',
           url : '',
         },
         {
           id : 3,
-          text : 'Work',
+          text : 'Works',
           url : '',
         },
         {

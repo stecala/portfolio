@@ -58,5 +58,6 @@ export default {
   color: var(--light);
   min-height: 100vh;
   scrollbar-width: none;
+  overflow: hidden;
 }
 </style>
