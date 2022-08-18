@@ -32,8 +32,8 @@
             </p>
           </div>
         </section>
-        <section class="px-3 mt-5 ">
-          <div class="row align-items-center">
+        <section class="px-3 mt-5" id="about" >
+          <div class="row align-items-center " v-scrollanimation>
             <div class="col-12 col-lg-6 ">
               <div class="text-section row position-relative">
                 <div class="col-12">
@@ -75,8 +75,13 @@
             </div>
           </div>
         </section>
-        <section>
-          <h3>come</h3>
+        <section class="px-3 mt-5">
+          <div class="row align-items-center ">
+            <div class="col-12">
+              <span class="number-section">02.</span><span class="title-section"> Skills</span>
+            </div>
+            <SkillsComponent />
+          </div>
         </section>
       </div>
     </div>
@@ -84,9 +89,12 @@
 </template>
 
 <script>
-
+import SkillsComponent from './SkillsComponent.vue';
 export default {
   props :{
+  },
+  components :{
+    SkillsComponent,
   },
   data : function(){
     return{
@@ -121,8 +129,8 @@ export default {
 <style scoped lang="scss">
 @import '../assets/style/slide-in-bottom.scss';
 @import '../assets/style/puff-in.scss';
-@import '../assets/style/slide-in-left.scss';
 @import '../assets/style/doodle-style.scss';
+@import '../assets/style/info-container.scss';
   main{
     
     .social-container{
@@ -143,42 +151,7 @@ export default {
         }
       }
     }
-    .info-container{
-      max-width: 750px;
-      margin: 0px auto;
-      .small-text{
-        color: var(--note);
-        font-size: 1.5rem;
-      }
-      .name{
-        color: var(--title-color);
-        font-size: 2.7rem;
-        font-weight: 700;
-      }
-      .big-description{
-        color: var(--note);
-        font-size: 2.7rem;
-        font-weight: 700;
-        line-height: 45px;
-      }
-      .text{
-        width: 85%;
-        span{
-          color: var(--note);
-        }
-      }
-      .text-mobile{
-        width: 90%;
-        span{
-          color: var(--note);
-        }
-      }
-      .divider{
-        text-align: center;
-        font-size: 2.5rem;
-        font-weight: 600;
-      }
-    }
+    
   }
   .container-snap{
     width: 100vw;
@@ -205,22 +178,6 @@ export default {
         
         &:nth-of-type(2){
           justify-content: start;
-          .text-section{
-            .number-section{
-              color: var(--note);
-              font-family: 'Inconsolata';
-              font-size: 2rem;
-            }
-            .title-section{
-              font-size: 2rem;
-              font-weight: 700;
-              color: var(--title-color);
-            }
-            .note{
-              color: var(--note);
-            }
-            
-          }
           .img-container{
             text-align: center;
             margin: 0 auto;
@@ -236,8 +193,67 @@ export default {
               position: relative;
             } 
           }
+
+          
+          .enter{
+          -webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+          animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+          }
+
+          @-webkit-keyframes puff-in-center {
+            0% {
+              -webkit-transform: scale(2);
+                      transform: scale(2);
+              -webkit-filter: blur(4px);
+                      filter: blur(4px);
+              opacity: 0;
+            }
+            100% {
+              -webkit-transform: scale(1);
+                      transform: scale(1);
+              -webkit-filter: blur(0px);
+                      filter: blur(0px);
+              opacity: 1;
+            }
+          }
+          @keyframes puff-in-center {
+            0% {
+              -webkit-transform: scale(2);
+                      transform: scale(2);
+              -webkit-filter: blur(4px);
+                      filter: blur(4px);
+              opacity: 0;
+            }
+            100% {
+              -webkit-transform: scale(1);
+                      transform: scale(1);
+              -webkit-filter: blur(0px);
+                      filter: blur(0px);
+              opacity: 1;
+            }
+          }
+        }
+        &:nth-of-type(3){
+          justify-content: start;
         }
       }
     }
+  }
+
+  .before-enter{
+    opacity: 0;
+  }
+  .number-section{
+    color: var(--note);
+    font-family: 'Inconsolata';
+    font-size: 2rem;
+  }
+  .title-section{
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--title-color);
+  }
+  .note{
+    color: var(--note);
   }
 </style>

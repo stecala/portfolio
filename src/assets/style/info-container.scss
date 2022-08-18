@@ -1,0 +1,36 @@
+.info-container{
+    max-width: 750px;
+    margin: 0px auto;
+    .small-text{
+      color: var(--note);
+      font-size: 1.5rem;
+    }
+    .name{
+      color: var(--title-color);
+      font-size: 2.7rem;
+      font-weight: 700;
+    }
+    .big-description{
+      color: var(--note);
+      font-size: 2.7rem;
+      font-weight: 700;
+      line-height: 45px;
+    }
+    .text{
+      width: 85%;
+      span{
+        color: var(--note);
+      }
+    }
+    .text-mobile{
+      width: 90%;
+      span{
+        color: var(--note);
+      }
+    }
+    .divider{
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+  }

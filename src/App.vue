@@ -53,6 +53,7 @@ export default {
   margin: 0;
   box-sizing: border-box;
 }
+
 #app{
   background-color: var(--bg-dark);
   color: var(--light);

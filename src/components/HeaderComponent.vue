@@ -20,8 +20,10 @@
         <div class="position-absolute hamburger-list py-3" :class="isClicked===true ? 'd-block slide-in-elliptic-right-fwd' : isFirst() ">
             <ul>
               <li v-for="link in navbarItems" :key="link.id" class="pe-3">
-                <span class="number-navbar">0{{link.id}}.</span>
-                <span>{{link.text}}</span>
+                <a :href="link.url">
+                  <span class="number-navbar">0{{link.id}}.</span>
+                  <span>{{link.text}}</span>
+                </a>
               </li>
             </ul>
         </div>
@@ -29,8 +31,10 @@
         <div class="d-none d-lg-block navbar-lg-container ">
           <ul class="justify-content-end d-flex no-wrap ">
             <li v-for="link in navbarItems" :key="link.id" class="pe-5 slide-in-top">
+              <a :href="link.url">
                 <span class="number-navbar">0{{link.id}}.</span>
                 <span>&nbsp;{{link.text}}</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -50,7 +54,7 @@ export default {
         {
           id : 1,
           text : 'About',
-          url : '',
+          url : '#about',
         },
         {
           id : 2,
@@ -92,6 +96,14 @@ export default {
 @import '../assets/style/hamburger-icon.scss';
 @import '../assets/style/animation-hamburger-list.scss';
 
+a{
+  color: var(--light);
+  text-decoration: none;
+  &:hover{
+        color: var(--title-color);
+        transition: all 0.5s ease-in;
+      }
+}
 .logo-container{
   height: 80px;
   img{
@@ -139,10 +151,7 @@ export default {
       cursor: pointer;
       font-weight: 700;
       
-      &:hover{
-        color: var(--title-color);
-        transition: all 0.5s ease-in;
-      }
+      
     }
   }
 }
