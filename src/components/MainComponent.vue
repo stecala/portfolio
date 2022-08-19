@@ -76,7 +76,7 @@
           </div>
         </section>
         <section class="px-3 mt-5">
-          <div class="row align-items-center ">
+          <div class="row align-items-center width-fix">
             <div class="col-12">
               <span class="number-section">02.</span><span class="title-section"> Skills</span>
             </div>
@@ -234,9 +234,8 @@ export default {
           }
         }
         &:nth-of-type(3){
-          justify-content: start;
+          display: flex;
         }
-      }
     }
   }
 
@@ -256,4 +255,8 @@ export default {
   .note{
     color: var(--note);
   }
+  .width-fix{
+    max-width: 821px;
+  } 
+}
 </style>
