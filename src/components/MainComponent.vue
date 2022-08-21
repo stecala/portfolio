@@ -172,7 +172,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 108vh;
+        height: 100vh;
         width: 100%;
         scroll-snap-align: start;
         
