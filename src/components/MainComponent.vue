@@ -75,8 +75,8 @@
             </div>
           </div>
         </section>
-        <section class="px-3 mt-5">
-          <div class="row align-items-center width-fix">
+        <section class="px-3 mt-5" id="skill">
+          <div class="row align-items-center width-fix" v-scrollanimation>
             <div class="col-12">
               <span class="number-section">02.</span><span class="title-section"> Skills</span>
             </div>
@@ -172,7 +172,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 108vh;
         width: 100%;
         scroll-snap-align: start;
         
@@ -193,52 +193,50 @@ export default {
               position: relative;
             } 
           }
-
-          
-          .enter{
-          -webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-          animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-          }
-
-          @-webkit-keyframes puff-in-center {
-            0% {
-              -webkit-transform: scale(2);
-                      transform: scale(2);
-              -webkit-filter: blur(4px);
-                      filter: blur(4px);
-              opacity: 0;
-            }
-            100% {
-              -webkit-transform: scale(1);
-                      transform: scale(1);
-              -webkit-filter: blur(0px);
-                      filter: blur(0px);
-              opacity: 1;
-            }
-          }
-          @keyframes puff-in-center {
-            0% {
-              -webkit-transform: scale(2);
-                      transform: scale(2);
-              -webkit-filter: blur(4px);
-                      filter: blur(4px);
-              opacity: 0;
-            }
-            100% {
-              -webkit-transform: scale(1);
-                      transform: scale(1);
-              -webkit-filter: blur(0px);
-                      filter: blur(0px);
-              opacity: 1;
-            }
-          }
-        }
         &:nth-of-type(3){
           display: flex;
         }
     }
   }
 
+  .enter{
+    -webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    }
+
+    @-webkit-keyframes puff-in-center {
+      0% {
+        -webkit-transform: scale(2);
+                transform: scale(2);
+        -webkit-filter: blur(4px);
+                filter: blur(4px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+      }
+    }
+    @keyframes puff-in-center {
+      0% {
+        -webkit-transform: scale(2);
+                transform: scale(2);
+        -webkit-filter: blur(4px);
+                filter: blur(4px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+      }
+    }
+  }
   .before-enter{
     opacity: 0;
   }

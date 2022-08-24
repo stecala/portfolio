@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-12 mt-4">
+        <div class="col-12 mt-5">
             <ul class="header-skills">
                 <li v-for="skill in skills" :key="skill" @click="setCurrentSkill(skill)">
                     {{skill}}
@@ -8,25 +8,46 @@
                 </li>
             </ul>
         </div>
-        <!-- lg -->
-        <div class="col-3">
+
+        <div class="col-3 position-relative">
+            
+            <!-- Hard skill -->
             <ul class="list-left" v-if="selectedSkill=='Hard Skills'">
                 <li v-for="type in hardSkillList" :key="type.id" :class="selectedSkill == 'Hard Skills' && type.type === selectedHardSkill ? 'selected' : ''" @click="setCurrentHardSkill(type.type)">
                     {{type.type}}
                 </li>
             </ul>
+
+            <!-- Soft skill -->
             <ul class="list-left" v-if="selectedSkill=='Soft Skills'">
                 <li v-for="type in softSkillList" :key='type.id' @click="setCurrentSoftSkill(type.name)" :class="{'social' : type.id == 0 , 'personal' : type.id == 1 , 'methodical' : type.id == 2 }">
                     {{type.name}}
                 </li>
             </ul>
+            
+            <!-- Languages -->
+            <ul v-if="selectedSkill=='Languages'" class="menu-lang">
+                <li v-for="lang in languagesList" :key="lang.id" class="selected">
+                    {{lang.lang}}
+                </li>
+            </ul>
+            <div class="doodle-container-plane">
+                <img src="/img/plane.svg" alt="doodle">
+            </div>
+            <div class="doodle-container-lamp d-md-none d-lg-block">
+                <img src="/img/lamp.svg" alt="doodle lamp">
+            </div>
         </div>
         <div class="col-9">
+            
+            <!-- Hard skill -->
            <ul v-if="selectedSkill=='Hard Skills'" class="lang selected">
                 <li v-for="PCLang in hardSkillList[counterHS].langs" :key="PCLang.id" :class="(PCLang.id < hardSkillList[counterHS].langs.length) ? 'border-b' : '' "> 
                     <span class="icon-container"><i :class="PCLang.icon"></i></span>{{PCLang.name}}
                 </li>
            </ul>
+
+            <!-- Soft skill -->
            <ul class="lang" v-if="selectedSkill=='Soft Skills'" :class="{'social' : counterSS == 0, 'personal' : counterSS == 1, 'methodical' : counterSS == 2}">
              <li v-for="skill in softSkillList[counterSS].description" :key="skill.id" :class="{
              'border-b-social' : skill.id < softSkillList[counterSS].description.length - 1 && selectedSoftSkill == 'Social', 
@@ -36,6 +57,17 @@
                 <span class="icon-container"><i :class="skill.icon"></i></span>{{skill.skill}}
              </li>
            </ul>
+
+           <!-- Languages -->
+            <ul class="lang selected" v-if="selectedSkill == 'Languages'">
+                <li v-for="lang in languagesList" :key="lang.id" class="border-b">
+                   <div class="img-container"><img :src="lang.img" :alt="lang.lang"></div>
+                    <div class="txt-container"> 
+                        {{lang.description}}
+                    </div> 
+                </li>
+            </ul>
+
         </div>
     </div>
 </template>
@@ -193,6 +225,26 @@ export default {
                     ],
                 },
             ],
+            languagesList : [
+                {
+                    id : 0,
+                    lang : 'Italian',
+                    img : '/img/flags/italy.svg',
+                    description : 'Native',
+                },
+                {
+                    id : 1,
+                    lang : 'English',
+                    img : '/img/flags/england.svg',
+                    description : 'Advanced level (B2) acquired during the schools and improved trought a 6-months staying in Spain',
+                },
+                {
+                    id : 2,
+                    lang : 'Spanish',
+                    img : '/img/flags/spain.svg',
+                    description : 'Advanced level in listening and reading (B2) acquired during the first years of highschool and refreshed living for 6 months in Girona',
+                },
+            ]
         }
     },
     methods :{
@@ -256,8 +308,6 @@ export default {
         list-style: none;
         padding: 15px 0;
         li{
-            display: flex;
-            justify-content: center;
             margin-top: 25px;
             padding: 15px 10px;
             font-size: 1.3rem;
@@ -271,16 +321,56 @@ export default {
         margin-bottom: 0;
         padding: 0 10px;
         border-radius: 5px;
-        height: 401px;
+        min-height: 401px;
+
         li{
             padding: 15px;
             font-size: 1.2rem;
             font-weight: 600;
+            display: flex;
+            align-items: center;
             .icon-container{
                 padding-right: 20px;
                 font-size: 1.5rem;
                 color: var(--note);
             }
+            .img-container{
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                img{
+                width: 100%;
+                }
+            }
+            .txt-container{
+                display: inline-block;
+                width: 80%;
+                min-height: 60px;
+                padding: 0 20px;
+            }
+        }
+        
+    }
+    .doodle-container-plane{
+        width: 100px;
+        height: 100px;
+        left: 0;
+        bottom: -2%;
+    }
+    .doodle-container-lamp{
+        width: 150px;
+        height: 150px;
+        top: -60%;
+        left: 170%;
+        transform: rotate(15deg);
+    }
+    .doodle-container-plane,
+    .doodle-container-lamp
+    {
+        position: absolute;
+        
+        img{
+            width: 100%;
         }
     }
     .selected{
@@ -312,5 +402,23 @@ export default {
     }
     .border-b-methodical{
         border-bottom: 1px solid rgb(202, 54, 13);
+    }
+    .menu-lang{
+        list-style: none;
+        padding: 25px 0;
+        li{
+            padding: 15px 10px;
+            font-size: 1.3rem;
+            border-radius: 10px 0 0 10px;
+            &:nth-of-type(1){
+                margin-top: 20px
+            }
+            &:nth-of-type(2){
+                margin-top: 40px;
+            }
+            &:nth-of-type(3){
+                margin-top: 55px;
+            }
+        }
     }
  </style>

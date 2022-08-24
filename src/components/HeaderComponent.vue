@@ -59,7 +59,7 @@ export default {
         {
           id : 2,
           text : 'Skills',
-          url : '',
+          url : '#skill',
         },
         {
           id : 3,
