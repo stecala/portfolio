@@ -9,8 +9,19 @@
         </li>
       </ul>
     </div>
+     
 
     <div class="container-lg container-snap">
+      <div class="wrap-scroll">
+        <div class="scroll-container">
+          <span class="scroll-icon">
+            <span class="scroll-icon__wheel-outer">
+              <span class="scroll-icon__wheel-inner"></span>
+            </span>
+          </span>
+        </div>
+      </div>
+
       <div class="small-container"> 
         <section class=" puff-in-center">
           <div class="info-container">
@@ -245,6 +256,61 @@ export default {
   }
   .width-fix{
     max-width: 821px;
-  } 
+  }
+  
+  
+
+
+.wrap-scroll{
+  position: absolute;
+  bottom: 1%;
+  left: 90%;
+  z-index: 5;
+  .scroll-icon {
+    display: block;
+    position: relative;
+    height: 1em;
+    width: .5em;
+    border: .1em solid #fff;
+    border-radius: 1em;
+  }
+
+  .scroll-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .scroll-icon__wheel-outer {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: .5em;
+    width: .1em;
+    margin-left: -.05em;
+    border-radius: .4em;
+    overflow: hidden;
+  }
+
+  .scroll-icon__wheel-inner {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    background-color: #fff;
+    animation: scroll_1 2.75s ease-in-out infinite;
+  }
+  @keyframes scroll_1 {
+    0%   { transform: translateY(0); }
+    25%  { transform: translateY(-0.3em); }
+    50%  { transform: translateY(0); }
+    75%  { transform: translateY(0.3em); }
+    100% { transform: translateY(0); }
+  }
+}
 }
 </style>

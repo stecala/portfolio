@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-7">
             <div class="img-container" v-for="work in worksList" :key="work.id" v-show="(currentIndex == work.id)">
-                <img :src="work.img" :alt="work.name">
+                <img :src="work.img" :alt="work.name" v-scrollanimation>
             </div>
         </div>
         <div class="col-5 pt-5">
@@ -14,7 +14,7 @@
                     <p class="title">
                         {{work.name}}
                     </p>
-                    <div class="py-4 text-end description">
+                    <div class="py-4 description" v-scrollanimation>
                         {{work.description}}
                     </div>
                     <ul class="tech mt-3">
@@ -57,7 +57,7 @@ export default {
                     id : 1,
                     img : '/img/carousel/Netflix.png',
                     name : 'Netflix Search',
-                    description : 'An application of Api\'s calls: the Homepage collects the most popular Films and TV series. It is also possible to search for a specific film title.Data are taken from TMDB.',
+                    description : 'An application of Api\'s calls: the Homepage collects the most popular Films and TV series. It is also possible to search for a specific film title. Data are taken from TMDB.',
                     technologyUsed : ['VS Code', 'VueJs', 'Scss', 'Bootstrap', 'Axios'],
                     link : 'https://github.com/stecala/vue-boolflix',
                 },
@@ -65,25 +65,25 @@ export default {
                     id : 2,
                     img : '/img/carousel/Playstation.png',
                     name : 'Playstation clone',
-                    description : '',
+                    description : 'Introduction to Front-end: a basic Web page that reproduces Playstation Home page using Bootstrap. 100% responsive for mobile phone.',
                     technologyUsed : ['VS Code', 'HTML5', 'CSS', 'Bootstrap'],
                     link : 'https://github.com/stecala/htmlcss-playstation',
-                },
-                {
-                    id : 3,
-                    img : '/img/carousel/spotify.png',
-                    name : 'Homepage Spotify',
-                    description : '',
-                    technologyUsed : ['VS Code', 'HTML5', 'CSS', 'Bootstrap'],
-                    link : 'https://github.com/stecala/html-css-spotifyweb',
                 },
                 {
                     id : 4,
                     img : '/img/carousel/whatsapp.png',
                     name : 'Whatsapp Web clone',
-                    description : '',
+                    description : 'Example of a Web App developed using Vuejs. I recreated the Whatsapp Web App with a list of previous chats and the possibility to have a brief conversation with a CHAT-BOT! ',
                     technologyUsed : ['VS Code', 'Vuejs', 'CSS', 'Bootstrap'],
                     link : 'https://github.com/stecala/vue-boolzapp',
+                },
+                {
+                    id : 3,
+                    img : '/img/carousel/spotify.png',
+                    name : 'Homepage Spotify',
+                    description : 'Another Front-end project built with Bootstrap. I reproduced the Home page of Spotify Web App. Good news! it\'s completely responsive.  ',
+                    technologyUsed : ['VS Code', 'HTML5', 'CSS', 'Bootstrap'],
+                    link : 'https://github.com/stecala/html-css-spotifyweb',
                 },
             ], 
             currentIndex : 0,
@@ -182,7 +182,7 @@ export default {
 .next,
 .prev{
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -198,5 +198,46 @@ export default {
 }
 .prev{
     left: 0;
+}
+
+
+.before-enter{
+    opacity: 0;
+}
+.enter{
+	-webkit-animation: swing-in-right-bck 0.8s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-right-bck 0.8s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+@-webkit-keyframes swing-in-right-bck {
+  0% {
+    -webkit-transform: rotateY(70deg);
+            transform: rotateY(70deg);
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    opacity: 1;
+  }
+}
+@keyframes swing-in-right-bck {
+  0% {
+    -webkit-transform: rotateY(70deg);
+            transform: rotateY(70deg);
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    opacity: 1;
+  }
 }
 </style>
