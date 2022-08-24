@@ -68,7 +68,7 @@
                 <div class="arrow-container-1 position-absolute d-none d-lg-block"></div>
                 <div class="arrow-container-1-small position-absolute d-lg-none"></div>
                 <div class="arrow-container-2 position-absolute d-none d-lg-block"></div>
-                <div class="arrow-container-2-small position-absolute d-lg-none"></div>
+                <div class="arrow-container-2-small position-absolute d-md-none d-lg-none"></div>
                 <div class="arrow-container-3 d-none d-xl-block position-absolute"></div>
                 <div class="arrow-container-3-small d-lg-none position-absolute"></div>
               </div>
