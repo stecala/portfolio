@@ -83,6 +83,14 @@
             <SkillsComponent />
           </div>
         </section>
+        <section class="px-3 mt-5" id="works">
+          <div class="row align-items-center" v-scrollanimation>
+            <div class="col-12">
+              <span class="number-section">03.</span><span class="title-section"> Works</span>
+            </div>
+            <WorksComponent />
+          </div>
+        </section>
       </div>
     </div>
   </main>
@@ -90,11 +98,13 @@
 
 <script>
 import SkillsComponent from './SkillsComponent.vue';
+import WorksComponent from './WorksComponents.vue';
 export default {
   props :{
   },
   components :{
     SkillsComponent,
+    WorksComponent,
   },
   data : function(){
     return{
@@ -131,28 +141,8 @@ export default {
 @import '../assets/style/puff-in.scss';
 @import '../assets/style/doodle-style.scss';
 @import '../assets/style/info-container.scss';
-  main{
+@import '../assets/style/social-container.scss';   
     
-    .social-container{
-      bottom: 0;
-      left: 1.5%;
-      ul{
-        list-style: none;
-        padding: 0;
-        li{
-          a{
-            font-size: 2rem;
-            color: var(--note);
-            transition: all 0.5s ;
-            &:hover{
-              color: var(--title-color); 
-            }
-          }
-        }
-      }
-    }
-    
-  }
   .container-snap{
     width: 100vw;
     height: calc(100vh - 120px);
