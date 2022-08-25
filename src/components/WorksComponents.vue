@@ -1,16 +1,21 @@
 <template>
   <div class="col-12 mt-5 position-relative">
     <div class="row">
-        <div class="col-7">
+        <div class="col-12 col-lg-7">
             <div class="img-container" v-for="work in worksList" :key="work.id" v-show="(currentIndex == work.id)">
                 <img :src="work.img" :alt="work.name" v-scrollanimation>
             </div>
         </div>
-        <div class="col-5 pt-5">
+        <div class="col-lg-5 col-12 pt-5">
                 <p class="project text-end"> 
                     Featured Project
                 </p>
                 <div v-for="work in worksList" :key="work.id"  v-show="(currentIndex == work.id)" class="container-vfor">
+                    <div class="icon">
+                        <a :href="work.link" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
                     <p class="title">
                         {{work.name}}
                     </p>
@@ -18,15 +23,10 @@
                         {{work.description}}
                     </div>
                     <ul class="tech mt-3">
-                        <li v-for="tech in work.technologyUsed" :key="tech" class="ps-3">
+                        <li v-for="tech in work.technologyUsed" :key="tech" class="ps-2">
                             {{tech}}
                         </li>
                     </ul>
-                    <div class="icon me-5">
-                        <a :href="work.link" target="_blank">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
                 </div>
         </div>
     </div>
@@ -36,6 +36,7 @@
     <div class="prev" @click="prevSlide(), changeStatusForAnimationL()" :class="{'jello' : setAnimationLeft }">
         <i class="fa-solid fa-arrow-left"></i>
     </div>
+
   </div>
 </template>
 
@@ -48,7 +49,7 @@ export default {
                     id : 0,
                     img : '/img/carousel/DC-Comics.png',
                     name : 'DC Comics clone',
-                    description : 'A page that reproduces DC comics original website created using VueJs. Each section is composed of different components and populated by arrays of objects',
+                    description : 'A page that reproduces DC comics original website created using VueJs. Each section consists of different components and populated by arrays of objects',
                     technologyUsed : ['VS Code', 'VueJs', 'CSS', 'Bootstrap'],
                     link : 'https://github.com/stecala/vue-dc-comics',
 
@@ -85,6 +86,7 @@ export default {
                     technologyUsed : ['VS Code', 'HTML5', 'CSS', 'Bootstrap'],
                     link : 'https://github.com/stecala/html-css-spotifyweb',
                 },
+                
             ], 
             currentIndex : 0,
             setAnimationRight : false,
@@ -122,16 +124,15 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/style/jello.scss';
-.col-12{
-    max-height: 409px;
-}
+
 .img-container{
     width: 100%;
     height: 100%;
+    min-height: 201px;
     img{
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         object-position: center;
     }
 }
@@ -140,7 +141,9 @@ export default {
     color:  var(--note);
 }
 
-
+.col-lg-5{
+    min-height: 424px;
+}
 .container-vfor{
     .title{
         font-size: 2rem;
@@ -164,9 +167,7 @@ export default {
         border-radius: 10px;
         background-color: rgb(31, 31, 31);
         transition: 0.5s ease-in;
-        &:hover{
-            box-shadow: 5px 5px 5px rgba(51, 51, 51, 0.596);
-        }
+        box-shadow: 5px 5px 5px rgba(51, 51, 51, 0.596);
     }
     .icon{
         font-size: 2rem;
@@ -182,7 +183,7 @@ export default {
 .next,
 .prev{
     position: absolute;
-    bottom: -20px;
+    bottom: 33%;
     height: 30px;
     width: 30px;
     border-radius: 50%;

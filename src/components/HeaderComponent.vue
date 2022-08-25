@@ -69,7 +69,7 @@ export default {
         {
           id : 4,
           text : 'Contact',
-          url : '',
+          url : '#contact',
         },
       ]
     }
@@ -88,6 +88,7 @@ export default {
           return 'slide-out-elliptic-right-bck'
       }
     },
+    
   }
 }
 </script>

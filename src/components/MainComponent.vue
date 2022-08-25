@@ -28,7 +28,7 @@
             <p class="divider mb-3">
               &#60; &#62;
             </p>
-            <p class="small-text ps-3">Hi, name is </p>
+            <p class="small-text ps-3">Hi, My name is </p>
             <p class="name ps-3">Stefano Calarota. </p>
             <p class="big-description ps-3">I'm an in-progress Web Developer.</p>
 
@@ -94,12 +94,20 @@
             <SkillsComponent />
           </div>
         </section>
-        <section class="px-3 mt-5" id="works">
+        <section class="px-3 align-items-lg-center align-items-start" id="works">
           <div class="row align-items-center" v-scrollanimation>
             <div class="col-12">
               <span class="number-section">03.</span><span class="title-section"> Works</span>
             </div>
             <WorksComponent />
+          </div>
+        </section>
+        <section class="px-3 align-items-center" id="contact">
+          <div class="row align-items-center" v-scrollanimation>
+            <div class="col-12">
+              <span class="number-section">04.</span><span class="title-section"> Contact</span>
+            </div>
+            <ContactComponent />
           </div>
         </section>
       </div>
@@ -110,12 +118,15 @@
 <script>
 import SkillsComponent from './SkillsComponent.vue';
 import WorksComponent from './WorksComponents.vue';
+import ContactComponent from './ContactComponent.vue';
+
 export default {
   props :{
   },
   components :{
     SkillsComponent,
     WorksComponent,
+    ContactComponent,
   },
   data : function(){
     return{
@@ -173,7 +184,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 108vh;
+        height: calc(100vh);
         width: 100%;
         scroll-snap-align: start;
         
@@ -291,7 +302,7 @@ export default {
     top: 0;
     height: .5em;
     width: .1em;
-    margin-left: -.05em;
+    margin-left: -.035em;
     border-radius: .4em;
     overflow: hidden;
   }

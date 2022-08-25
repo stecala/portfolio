@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-5 d-none d-md-block">
             <ul class="header-skills">
                 <li v-for="skill in skills" :key="skill" @click="setCurrentSkill(skill)">
                     {{skill}}
@@ -9,25 +9,25 @@
             </ul>
         </div>
 
-        <div class="col-3 position-relative">
+        <div class="col-3 position-relative d-none d-md-block">
             
             <!-- Hard skill -->
             <ul class="list-left" v-if="selectedSkill=='Hard Skills'">
-                <li v-for="type in hardSkillList" :key="type.id" :class="selectedSkill == 'Hard Skills' && type.type === selectedHardSkill ? 'selected' : ''" @click="setCurrentHardSkill(type.type)">
+                <li v-for="type in hardSkillList" :key="type.id" :class="selectedSkill == 'Hard Skills' && type.type === selectedHardSkill ? 'selected' : ''" @click="setCurrentHardSkill(type.type)" class="hover">
                     {{type.type}}
                 </li>
             </ul>
 
             <!-- Soft skill -->
             <ul class="list-left" v-if="selectedSkill=='Soft Skills'">
-                <li v-for="type in softSkillList" :key='type.id' @click="setCurrentSoftSkill(type.name)" :class="{'social' : type.id == 0 , 'personal' : type.id == 1 , 'methodical' : type.id == 2 }">
+                <li v-for="type in softSkillList" :key='type.id' @click="setCurrentSoftSkill(type.name)" :class="{'selected' : selectedSoftSkill == type.name}" class="hover">
                     {{type.name}}
                 </li>
             </ul>
             
             <!-- Languages -->
-            <ul v-if="selectedSkill=='Languages'" class="menu-lang">
-                <li v-for="lang in languagesList" :key="lang.id" class="selected">
+            <ul v-if="selectedSkill=='Languages'" class="menu-lang" >
+                <li v-for="lang in languagesList" :key="lang.id" class="hover" >
                     {{lang.lang}}
                 </li>
             </ul>
@@ -38,28 +38,28 @@
                 <img src="/img/lamp.svg" alt="doodle lamp">
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-9 d-none d-md-block">
             
             <!-- Hard skill -->
-           <ul v-if="selectedSkill=='Hard Skills'" class="lang selected">
-                <li v-for="PCLang in hardSkillList[counterHS].langs" :key="PCLang.id" :class="(PCLang.id < hardSkillList[counterHS].langs.length) ? 'border-b' : '' "> 
+           <ul v-if="selectedSkill=='Hard Skills'" class="lang">
+                <li v-for="PCLang in hardSkillList[counterHS].langs" :key="PCLang.id" :class="(PCLang.id <= hardSkillList[counterHS].langs.length) ? 'border-b' : '' " class="ps-5"> 
                     <span class="icon-container"><i :class="PCLang.icon"></i></span>{{PCLang.name}}
                 </li>
            </ul>
 
             <!-- Soft skill -->
-           <ul class="lang" v-if="selectedSkill=='Soft Skills'" :class="{'social' : counterSS == 0, 'personal' : counterSS == 1, 'methodical' : counterSS == 2}">
+           <ul class="lang" v-if="selectedSkill=='Soft Skills'">
              <li v-for="skill in softSkillList[counterSS].description" :key="skill.id" :class="{
-             'border-b-social' : skill.id < softSkillList[counterSS].description.length - 1 && selectedSoftSkill == 'Social', 
-             'border-b-personal' : skill.id < softSkillList[counterSS].description.length - 1 && selectedSoftSkill == 'Personal',
-             'border-b-methodical' : skill.id < softSkillList[counterSS].description.length - 1 && selectedSoftSkill == 'Methodical'
-             }">
+             'border-b-social' : skill.id < softSkillList[counterSS].description.length && selectedSoftSkill == 'Social', 
+             'border-b-personal' : skill.id < softSkillList[counterSS].description.length && selectedSoftSkill == 'Personal',
+             'border-b-methodical' : skill.id < softSkillList[counterSS].description.length && selectedSoftSkill == 'Methodical'
+             }" class="ps-5">
                 <span class="icon-container"><i :class="skill.icon"></i></span>{{skill.skill}}
              </li>
            </ul>
 
            <!-- Languages -->
-            <ul class="lang selected" v-if="selectedSkill == 'Languages'">
+            <ul class="lang" v-if="selectedSkill == 'Languages'">
                 <li v-for="lang in languagesList" :key="lang.id" class="border-b">
                    <div class="img-container"><img :src="lang.img" :alt="lang.lang"></div>
                     <div class="txt-container"> 
@@ -91,7 +91,6 @@ export default {
                             id : 1,
                             icon : 'fa-brands fa-html5', 
                             name : 'HTML',
-                            description : '',
                         },
                         {
                             id: 2,
@@ -312,8 +311,14 @@ export default {
             padding: 15px 10px;
             font-size: 1.3rem;
             cursor: pointer;
-            border-radius: 10px 0 0 10px;
+            border-radius: 10px ;
         }
+        .hover:hover{
+            background-color: rgba(245, 245, 220, 0.219);
+        }
+    }
+    .selected{
+        color: var(--title-color);
     }
     .lang{
         list-style: none;
@@ -373,9 +378,7 @@ export default {
             width: 100%;
         }
     }
-    .selected{
-        background-color: #9ba5c975;
-    }
+    
     .col-3{
         padding-right: 0;
     }
@@ -385,15 +388,7 @@ export default {
     .border-b{
         border-bottom: 1px solid var(--note);
     }
-    .social{
-        background-color:  rgba(0, 128, 128, 0.397);
-    }
-    .personal{
-        background-color: #80003A;
-    }
-    .methodical{
-        background-color: rgba(156, 39, 6);
-    }
+   
     .border-b-social{
         border-bottom: 1px solid teal;
     }
