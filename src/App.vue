@@ -3,20 +3,17 @@
     <LoaderComponent :bootAnimation="bootAnimation" />
     <HeaderComponent v-if="bootAnimation === false" />
     <MainComponent v-if="bootAnimation === false" />
-    <FooterComponent v-if="bootAnimation === false" />
   </div>
 </template>
 
 <script>
 import HeaderComponent from './components/HeaderComponent.vue'
 import MainComponent from './components/MainComponent.vue'
-import FooterComponent from './components/FooterComponent.vue'
 import LoaderComponent from './components/LoaderComponent.vue'
 export default {
   components: {
     HeaderComponent,
     MainComponent, 
-    FooterComponent,
     LoaderComponent,
   },
   data : function(){

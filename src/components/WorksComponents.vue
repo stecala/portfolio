@@ -183,7 +183,7 @@ export default {
 .next,
 .prev{
     position: absolute;
-    bottom: 33%;
+    bottom: 25%;
     height: 30px;
     width: 30px;
     border-radius: 50%;

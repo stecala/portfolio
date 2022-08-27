@@ -1,0 +1,87 @@
+.header-skills{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    li{
+        display: inline-block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        padding: 0 5px;
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.199);
+        }
+        
+    }
+}
+.list-left{
+    list-style: none;
+    padding: 15px 0;
+    li{
+        margin-top: 25px;
+        padding: 15px 10px;
+        font-size: 1.3rem;
+        cursor: pointer;
+        border-radius: 10px ;
+    }
+    .hover:hover{
+        background-color: rgba(245, 245, 220, 0.219);
+    }
+}
+.selected{
+    color: var(--title-color);
+}
+
+
+.doodle-container-lamp{
+    width: 150px;
+    height: 150px;
+    top: -60%;
+    left: 170%;
+    transform: rotate(15deg);
+    position: absolute;
+    
+    img{
+        width: 100%;
+    }
+}
+
+.col-3{
+    padding-right: 0;
+}
+.col-9{
+    padding-left: 0;
+}
+.border-b{
+    border-bottom: 1px solid var(--note);
+}
+
+.border-b-social{
+    border-bottom: 1px solid teal;
+}
+.border-b-personal{
+    border-bottom: 1px solid #b10451;
+}
+.border-b-methodical{
+    border-bottom: 1px solid rgb(202, 54, 13);
+}
+.menu-lang{
+    list-style: none;
+    padding: 25px 0;
+    li{
+        padding: 15px 10px;
+        font-size: 1.3rem;
+        border-radius: 10px 0 0 10px;
+        &:nth-of-type(1){
+            margin-top: 20px
+        }
+        &:nth-of-type(2){
+            margin-top: 40px;
+        }
+        &:nth-of-type(3){
+            margin-top: 55px;
+        }
+    }
+}

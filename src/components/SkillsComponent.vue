@@ -1,5 +1,75 @@
 <template>
     <div class="row">
+        <!-- MOBILEPHONE -->
+        <div class="col-12 mt-3 d-md-none">
+            <ul class="header-skills-mobile">
+                <li v-for="(skill, index) in skills" :key="index" @click="setCurrentSkill(skill)">
+                    {{skill}}
+                    <div class="marker" :class="skill == selectedSkill ? 'visible' : 'invisible'"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12 mt-2  d-md-none">
+
+            <!-- Hard Skill mobile -->
+            <ul v-if="selectedSkill=='Hard Skills'" class="skill-to-select-list">
+                <li v-for="type in hardSkillList" :key="type.id" :class="selectedSkill == 'Hard Skills' && type.type === selectedHardSkill ? 'selected' : ''" @click="setCurrentHardSkill(type.type)" class="hover">
+                    {{type.type}}
+                </li>
+            </ul>
+
+            <!-- Soft Skill mobile -->
+            <ul class="skill-to-select-list" v-if="selectedSkill=='Soft Skills'">
+                <li v-for="type in softSkillList" :key='type.id' @click="setCurrentSoftSkill(type.name)" :class="{'selected' : selectedSoftSkill == type.name}">
+                    {{type.name}}
+                </li>
+            </ul>
+
+            <!-- Lenguages mobile -->
+            <ul v-if="selectedSkill=='Languages'" class="skill-to-select-list" >
+                <li v-for="lang in languagesList" :key="lang.id" :class="{'selected' : selectedLanguage == lang.lang}" @click="setCurrentLanguage(lang.lang)">
+                    {{lang.lang}}
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12  d-md-none">
+            
+            <!-- Hardskill -->
+            <ul v-if="selectedSkill=='Hard Skills'" class="lang">
+                <li v-for="PCLang in hardSkillList[counterHS].langs" :key="PCLang.id" :class="(PCLang.id <= hardSkillList[counterHS].langs.length) ? 'border-b' : '' " class="ps-5"> 
+                    <span class="icon-container"><i :class="PCLang.icon"></i></span>{{PCLang.name}}
+                </li>
+           </ul>
+            
+            <!-- SoftSkill -->
+            <ul class="lang" v-if="selectedSkill=='Soft Skills'">
+             <li v-for="skill in softSkillList[counterSS].description" :key="skill.id" :class="{
+             'border-b-social' : skill.id < softSkillList[counterSS].description.length && selectedSoftSkill == 'Social', 
+             'border-b-personal' : skill.id < softSkillList[counterSS].description.length && selectedSoftSkill == 'Personal',
+             'border-b-methodical' : skill.id < softSkillList[counterSS].description.length && selectedSoftSkill == 'Methodical'
+             }" class="ps-5">
+                <span class="icon-container"><i :class="skill.icon"></i></span>{{skill.skill}}
+             </li>
+           </ul>           
+
+           <!-- Lang -->
+            <ul class="lang" v-if="selectedSkill=='Languages' ">
+                <li v-for="lang in languagesList" :key="lang.id" v-show="lang.lang == selectedLanguage" class="px-0">
+                    <div class="img-container"><img :src="lang.img" :alt="lang.lang"></div>
+                    <div class="txt-container ps-4"> 
+                        {{lang.description}}
+                    </div> 
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+
+        <!-- MD OR MORE -->
         <div class="col-12 mt-5 d-none d-md-block">
             <ul class="header-skills">
                 <li v-for="skill in skills" :key="skill" @click="setCurrentSkill(skill)">
@@ -31,9 +101,6 @@
                     {{lang.lang}}
                 </li>
             </ul>
-            <div class="doodle-container-plane">
-                <img src="/img/plane.svg" alt="doodle">
-            </div>
             <div class="doodle-container-lamp d-md-none d-lg-block">
                 <img src="/img/lamp.svg" alt="doodle lamp">
             </div>
@@ -53,7 +120,7 @@
              'border-b-social' : skill.id < softSkillList[counterSS].description.length && selectedSoftSkill == 'Social', 
              'border-b-personal' : skill.id < softSkillList[counterSS].description.length && selectedSoftSkill == 'Personal',
              'border-b-methodical' : skill.id < softSkillList[counterSS].description.length && selectedSoftSkill == 'Methodical'
-             }" class="ps-5">
+             }" class="ps-5 d-flex align-items-start">
                 <span class="icon-container"><i :class="skill.icon"></i></span>{{skill.skill}}
              </li>
            </ul>
@@ -62,7 +129,7 @@
             <ul class="lang" v-if="selectedSkill == 'Languages'">
                 <li v-for="lang in languagesList" :key="lang.id" class="border-b">
                    <div class="img-container"><img :src="lang.img" :alt="lang.lang"></div>
-                    <div class="txt-container"> 
+                    <div class="txt-container px-3"> 
                         {{lang.description}}
                     </div> 
                 </li>
@@ -80,6 +147,7 @@ export default {
             selectedSkill : 'Hard Skills',
             selectedHardSkill : 'Frontend',
             selectedSoftSkill : 'Social',
+            selectedLanguage : 'Italian',
             counterHS : 0,
             counterSS : 0,
             hardSkillList: [
@@ -249,7 +317,6 @@ export default {
     methods :{
         setCurrentSkill(clicked){
             this.selectedSkill = clicked
-            console.log(this.selectedSkill)
         },
         setCurrentHardSkill(clicked){
             this.selectedHardSkill = clicked
@@ -272,7 +339,9 @@ export default {
             else{
                 this.counterSS = 2
             }
-            console.log(this.counterSS)
+        },
+        setCurrentLanguage(clicked){
+            this.selectedLanguage= clicked
         }
        
     }
@@ -280,140 +349,55 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .header-skills{
-        list-style: none;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        padding: 0;
-        li{
-            display: inline-block;
-            cursor: pointer;
-            font-size: 1.5rem;
-            border-radius: 5px;
-            padding: 0 5px;
-            &:hover{
-                background-color: rgba(255, 255, 255, 0.199);
-            }
-            .marker{
-                width: 100%;
-                height: 3px;
-                border-radius: 1.5px;
-                background-color: var(--title-color);
-            }
-        }
-    }
-    .list-left{
-        list-style: none;
-        padding: 15px 0;
-        li{
-            margin-top: 25px;
-            padding: 15px 10px;
-            font-size: 1.3rem;
-            cursor: pointer;
-            border-radius: 10px ;
-        }
-        .hover:hover{
-            background-color: rgba(245, 245, 220, 0.219);
-        }
-    }
-    .selected{
-        color: var(--title-color);
-    }
-    .lang{
-        list-style: none;
-        margin-top: 25px;
-        margin-bottom: 0;
-        padding: 0 10px;
-        border-radius: 5px;
-        min-height: 401px;
+@import '../assets/style/skill-to-md.scss';
 
-        li{
-            padding: 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            .icon-container{
-                padding-right: 20px;
-                font-size: 1.5rem;
-                color: var(--note);
-            }
-            .img-container{
-                display: inline-block;
-                width: 50px;
-                height: 50px;
-                img{
-                width: 100%;
-                }
-            }
-            .txt-container{
-                display: inline-block;
-                width: 80%;
-                min-height: 60px;
-                padding: 0 20px;
+.header-skills-mobile,
+.skill-to-select-list{
+    list-style: none;
+    display: flex;
+}
+.header-skills-mobile{
+    justify-content: space-around;
+}
+.skill-to-select-list{
+    justify-content: space-around;
+}    
+.marker{
+    width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: var(--title-color);
+}
+.lang{
+    list-style: none;
+    margin-top: 25px;
+    margin-bottom: 0;
+    padding: 0 10px;
+    border-radius: 5px;
+    min-height: 401px;
+
+    li{
+        padding: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: flex;
+        .icon-container{
+            padding-right: 20px;
+            font-size: 1.5rem;
+            color: var(--note);
+        }
+        .img-container{
+            width: 50px;
+            height: 50px;
+            img{
+            width: 100%;
             }
         }
-        
-    }
-    .doodle-container-plane{
-        width: 100px;
-        height: 100px;
-        left: 0;
-        bottom: -2%;
-    }
-    .doodle-container-lamp{
-        width: 150px;
-        height: 150px;
-        top: -60%;
-        left: 170%;
-        transform: rotate(15deg);
-    }
-    .doodle-container-plane,
-    .doodle-container-lamp
-    {
-        position: absolute;
-        
-        img{
-            width: 100%;
+        .txt-container{
+            width: 80%;
+            min-height: 60px;
         }
     }
     
-    .col-3{
-        padding-right: 0;
-    }
-    .col-9{
-        padding-left: 0;
-    }
-    .border-b{
-        border-bottom: 1px solid var(--note);
-    }
-   
-    .border-b-social{
-        border-bottom: 1px solid teal;
-    }
-    .border-b-personal{
-        border-bottom: 1px solid #b10451;
-    }
-    .border-b-methodical{
-        border-bottom: 1px solid rgb(202, 54, 13);
-    }
-    .menu-lang{
-        list-style: none;
-        padding: 25px 0;
-        li{
-            padding: 15px 10px;
-            font-size: 1.3rem;
-            border-radius: 10px 0 0 10px;
-            &:nth-of-type(1){
-                margin-top: 20px
-            }
-            &:nth-of-type(2){
-                margin-top: 40px;
-            }
-            &:nth-of-type(3){
-                margin-top: 55px;
-            }
-        }
-    }
+}
  </style>

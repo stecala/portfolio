@@ -22,10 +22,10 @@
         </div>
       </div>
 
-      <div class="small-container"> 
-        <section class=" puff-in-center">
+      <div class="small-container" > 
+        <section class=" puff-in-center align-items-center">
           <div class="info-container">
-            <p class="divider mb-3">
+            <p class="divider mb-3" id="start">
               &#60; &#62;
             </p>
             <p class="small-text ps-3">Hi, My name is </p>
@@ -86,9 +86,9 @@
             </div>
           </div>
         </section>
-        <section class="px-3 mt-5" id="skill">
+        <section class="px-3 mt-5 align-items-lg-center align-items-start" id="skill">
           <div class="row align-items-center width-fix" v-scrollanimation>
-            <div class="col-12">
+            <div class="col-12 mt-5">
               <span class="number-section">02.</span><span class="title-section"> Skills</span>
             </div>
             <SkillsComponent />
@@ -102,13 +102,14 @@
             <WorksComponent />
           </div>
         </section>
-        <section class="px-3 align-items-center" id="contact">
+        <section class="px-3 align-items-center flex-column position-relative" id="contact">
           <div class="row align-items-center" v-scrollanimation>
             <div class="col-12">
               <span class="number-section">04.</span><span class="title-section"> Contact</span>
             </div>
             <ContactComponent />
           </div>
+          <FooterComponent  />
         </section>
       </div>
     </div>
@@ -119,6 +120,7 @@
 import SkillsComponent from './SkillsComponent.vue';
 import WorksComponent from './WorksComponents.vue';
 import ContactComponent from './ContactComponent.vue';
+import FooterComponent from './FooterComponent.vue'
 
 export default {
   props :{
@@ -127,6 +129,7 @@ export default {
     SkillsComponent,
     WorksComponent,
     ContactComponent,
+    FooterComponent,
   },
   data : function(){
     return{
@@ -183,7 +186,6 @@ export default {
       section{
         display: flex;
         justify-content: center;
-        align-items: center;
         height: calc(100vh);
         width: 100%;
         scroll-snap-align: start;
@@ -207,6 +209,9 @@ export default {
           }
         &:nth-of-type(3){
           display: flex;
+        }
+        &:nth-of-type(6){
+          max-height: 50px;
         }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-content-between">
+  <div class="row justify-content-between position-relative">
     <div class="col-12 col-md-6">
       <div class="col-12">
         <h1 class="pt-4">Let's get in touch!</h1>
@@ -10,6 +10,9 @@
     </div>
     <div class="col-6 col-md-4 d-flex align-items-center mt-3">
         <a class="button-53" role="button" href="mailto:calarotastefano@gmail.com">TEXT ME!</a>
+    </div>
+    <div class="doodle-container d-none d-md-block">
+      <img src="/img/plane.svg" alt="doodle plane">
     </div>
   </div>
 </template>
@@ -73,6 +76,17 @@ h1{
   .button-53 {
     padding: .75rem 3rem;
     font-size: 1.25rem;
+  }
+}
+
+
+.doodle-container{
+  width: 110px;
+  height: 110px;
+  margin-top: 30px;
+  img{
+    width: 100%;
+    transform: scaleX(-1);
   }
 }
 </style>
