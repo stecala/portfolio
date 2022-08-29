@@ -59,7 +59,7 @@
                     I've always been interested in technology and informatic but I also pursued a passion for photography and post-production techniques using <span class="note">Adobe PhotoShop and Lightroom</span>. From this experiences I think I can say I'm good at self-taught!   
                   </p>
                   <p>
-                    Six months ago I decided to take a different way to make my interests and my work converge attending an intense course to become a <span class="note">Full Stack Web Developer!</span> 
+                    Six months ago I decided to take a different way to make my interests and my work converge attending an intensive course to become a <span class="note">Full Stack Web Developer!</span> 
                   </p>
                 </div>
             
