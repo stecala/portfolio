@@ -33,7 +33,7 @@
             <p class="big-description ps-3">I'm an in-progress Web Developer.</p>
 
             <p class="text d-none d-lg-block ps-3">In my 30s I decided to change my life attending the Boolean Tech Academy course to learn how to became a Full Stack Web Developer.<br>
-              My aim for the near future is to aplly what I studied in these months and <span>make it my job.</span>
+              My aim for the near future is to apply what I studied in these months and <span>make it my job.</span>
             </p>
             <p class="text-mobile d-lg-none ps-3">In my 30s I decided to change my life attending the Boolean Tech Academy course to learn how to became a Full Stack Web Developer.<br>
               My aim for the near future is to aplly what I studied in these months and <span>make it my job.</span>
