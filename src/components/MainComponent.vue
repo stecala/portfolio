@@ -30,13 +30,12 @@
             </p>
             <p class="small-text ps-3">Hi, My name is </p>
             <p class="name ps-3">Stefano Calarota. </p>
-            <p class="big-description ps-3">I'm an in-progress Web Developer.</p>
+            <p class="big-description ps-3">I'm a Full Stack Web Developer.</p>
 
-            <p class="text d-none d-lg-block ps-3">In my 30s I decided to change my life attending the Boolean Tech Academy course to learn how to became a Full Stack Web Developer.<br>
-              My aim for the near future is to apply what I studied in these months and <span>make it my job.</span>
+            <p class="text d-none d-lg-block ps-3">
+              Since 2022, I have been working in web development using a range of frameworks, with a particular focus on UX/UI design.<br>My professional experience includes developing front- and back-end tailored solutions for  both Italian and <span>international relevant clients</span>.
             </p>
-            <p class="text-mobile d-lg-none ps-3">In my 30s I decided to change my life attending the Boolean Tech Academy course to learn how to became a Full Stack Web Developer.<br>
-              My aim for the near future is to aplly what I studied in these months and <span>make it my job.</span>
+            <p class="text-mobile d-lg-none ps-3">Since 2022, I have been working in web development using a range of frameworks, with a particular focus on UX/UI design.<br>My professional experience includes developing front- and back-end tailored solutions for  both Italian and <span>international relevant clients</span>.
             </p>
             <p class="divider mt-5" >
               &#60;/&#62;
@@ -53,13 +52,14 @@
                 <div class="col-12 col-lg-12 mt-3">
                   <p>
                     Before my 30s I have held serveral job roles, I entered the world of work just after the high school exploring different paths without having a proper aspiration.<br>
-                    My last and longer-lasting employment was as a <span class="note">CNC operator</span>: At that time I was in a small factory and my role was to create <span class="note">mechanical designs</span> for motorhome accessories.
+                    I subsequently decided to enroll in <span class="note">Boolean's Master in Web Development</span> program to further refine my studies and pursue a career in IT.
+                  </p>
+                  <p>Since then, I've gained experience in web development, first working for a <span class="note">web agency</span> and later for a leading company specializing in <span class="note">data processing and consulting</span>.</p>
+                  <p>
+                    I've always been drawn to technology and computer science, but I've also cultivated a strong passion for photography and post-production, especially using <span class="note">Adobe Photoshop and Lightroom</span>. I'm particularly enthusiastic about <span class="note">nature photography</span>, which lets me express my creativity and my appreciation for the natural world and wildlife. On this side, I think I can proudly say that I'm a pretty good self-taught learner.
                   </p>
                   <p>
-                    I've always been interested in technology and informatic but I also pursued a passion for photography and post-production techniques using <span class="note">Adobe PhotoShop and Lightroom</span>. From this experiences I think I can say I'm good at self-taught!   
-                  </p>
-                  <p>
-                    Six months ago I decided to take a different way to make my interests and my work converge attending an intensive course to become a <span class="note">Full Stack Web Developer!</span> 
+                    I currently live in <span class="note">Sion (VS)</span>, where I recently relocated for family reasons. I am now seeking a position as a web developer in the area.
                   </p>
                 </div>
             
@@ -87,17 +87,25 @@
           </div>
         </section>
         <section class="px-3 mt-5 align-items-lg-center align-items-start" id="skill">
-          <div class="row align-items-center width-fix" v-scrollanimation>
+          <div class="row align-items-center w-100 " v-scrollanimation>
             <div class="col-12 mt-5">
               <span class="number-section">02.</span><span class="title-section"> Skills</span>
             </div>
             <SkillsComponent />
           </div>
         </section>
+        <section class="px-3 align-items-center flex-column position-relative" id="experience">
+          <div class="row w-100 align-items-center" v-scrollanimation>
+            <div class="col-12 mt-5">
+              <span class="number-section">03.</span><span class="title-section">Work Experiences</span>
+            </div>
+            <PreviousJobsComponent />
+          </div>
+        </section>
         <section class="px-3 align-items-lg-center align-items-start" id="works">
           <div class="row align-items-center" v-scrollanimation>
             <div class="col-12">
-              <span class="number-section">03.</span><span class="title-section"> Works</span>
+              <span class="number-section">04.</span><span class="title-section"> School Projects</span>
             </div>
             <WorksComponent />
           </div>
@@ -105,7 +113,7 @@
         <section class="px-3 align-items-center flex-column position-relative" id="contact">
           <div class="row align-items-center" v-scrollanimation>
             <div class="col-12">
-              <span class="number-section">04.</span><span class="title-section"> Contact</span>
+              <span class="number-section">05.</span><span class="title-section"> Contact</span>
             </div>
             <ContactComponent />
           </div>
@@ -120,7 +128,8 @@
 import SkillsComponent from './SkillsComponent.vue';
 import WorksComponent from './WorksComponents.vue';
 import ContactComponent from './ContactComponent.vue';
-import FooterComponent from './FooterComponent.vue'
+import FooterComponent from './FooterComponent.vue';
+import PreviousJobsComponent from './PreviousJobsComponent.vue'
 
 export default {
   props :{
@@ -130,6 +139,7 @@ export default {
     WorksComponent,
     ContactComponent,
     FooterComponent,
+    PreviousJobsComponent
   },
   data : function(){
     return{

@@ -37,7 +37,6 @@ export default {
 <style lang="scss">
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css);
 @import "~bootstrap/scss/bootstrap";
-//font-family: 'Inconsolata', monospace; used for navbar
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600&display=swap');
 :root{
   --title-color : #FA4753;

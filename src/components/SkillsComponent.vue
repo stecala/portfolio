@@ -156,33 +156,40 @@ export default {
                     type : 'Frontend',
                     langs : [
                         {
-                            id : 1,
-                            icon : 'fa-brands fa-html5', 
-                            name : 'HTML',
-                        },
-                        {
-                            id: 2,
-                            icon : 'fa-brands fa-css3', 
-                            name : 'CSS',
-                            description : '',
-                        },
-                        {
-                            id: 3,
+                            id: 0,
                             icon : 'fa-brands fa-bootstrap', 
                             name : 'Bootstrap',
                             description: '',
                         },
                         {
+                            id: 1,
+                            icon : 'fa-brands fa-tailwind-css', 
+                            name : 'Tailwind',
+                            description: '',
+                        },
+                        {
+                            id: 2,
+                            icon : 'fa-brands fa-square-js', 
+                            name : 'Javascript',
+                            description : '',
+                        },
+                        {
+                            id: 3,
+                            icon : 'fa-brands fa-typescript', 
+                            name : 'Typescript',
+                            description : '',
+                        },
+                        {
                             id: 4,
-                            icon : 'fa-brands fa-sass', 
-                            name : 'Sass',
+                            icon : 'fa-brands fa-angular', 
+                            name : 'Angular',
                             description : '',
                         },
                         {
                             id: 5,
-                            icon : 'fa-brands fa-square-js', 
-                            name : 'Javascript',
-                            description : '',
+                            icon : 'fa-brands fa-react', 
+                            name : 'React',
+                            description: '',
                         },
                         {
                             id: 6,
@@ -214,6 +221,12 @@ export default {
                             name: 'Laravel',
                             description: '',
                         },
+                        {
+                            id: 4,
+                            icon : 'fa-brands fa-python', 
+                            name: 'Python',
+                            description: '',
+                        }
                     ]
                 },
             ],
@@ -311,6 +324,12 @@ export default {
                     img : '/img/flags/spain.svg',
                     description : 'Advanced level in listening and reading (B2) acquired during the first years of highschool and refreshed living for 6 months in Girona',
                 },
+                {
+                    id: 3,
+                    lang: 'French',
+                    img: '',
+                    description: 'In progress, currently able to handle a basic conversation (A1)'
+                }
             ]
         }
     },

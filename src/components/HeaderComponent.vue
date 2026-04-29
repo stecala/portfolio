@@ -63,11 +63,16 @@ export default {
         },
         {
           id : 3,
-          text : 'Works',
-          url : '#works',
+          text : 'Work Experiences',
+          url : '#experience',
         },
         {
           id : 4,
+          text : 'School Projects',
+          url : '#works',
+        },
+        {
+          id : 5,
           text : 'Contact',
           url : '#contact',
         },
