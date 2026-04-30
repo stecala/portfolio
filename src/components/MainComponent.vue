@@ -180,12 +180,12 @@ export default {
     
   .container-snap{
     width: 100vw;
-    height: calc(100vh - 120px);
+    min-height: 100vh;
 
     .small-container{
       width: 100%;
-      height: 100%;
-      overflow-y: scroll;
+      min-height: 100vh;
+      overflow-y: auto;
       scrollbar-width: none;
 
       &::-webkit-scrollbar {
@@ -195,8 +195,10 @@ export default {
       section{
         display: flex;
         justify-content: center;
-        height: calc(100vh);
+        min-height: 100vh;
         width: 100%;
+        padding: 60px 0;
+        box-sizing: border-box;
         
         &:nth-of-type(2){
           justify-content: start;
@@ -215,11 +217,6 @@ export default {
               position: relative;
             } 
           }
-        &:nth-of-type(3){
-          display: flex;
-        }
-        &:nth-of-type(6){
-          max-height: 50px;
         }
     }
   }
@@ -335,6 +332,5 @@ export default {
     75%  { transform: translateY(0.3em); }
     100% { transform: translateY(0); }
   }
-}
 }
 </style>
