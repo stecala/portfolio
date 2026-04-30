@@ -94,8 +94,8 @@
             <SkillsComponent />
           </div>
         </section>
-        <section class="px-3 flex-column position-relative" id="experience">
-          <div class="row w-100 align-items-center" v-scrollanimation>
+        <section class="px-3 flex-column position-relative my-5 fit-box" id="experience">
+          <div class="row w-100" v-scrollanimation>
             <div class="col-12">
               <span class="number-section">03.</span><span class="title-section">Work Experiences</span>
             </div>
@@ -110,8 +110,8 @@
             <WorksComponent />
           </div>
         </section> -->
-        <section class="px-3 flex-column position-relative justify-content-start my-5 contact-box" id="contact">
-          <div class="row " v-scrollanimation>
+        <section class="px-3 flex-column position-relative justify-content-start my-5 fit-box" id="contact">
+          <div class="row mt-5" v-scrollanimation>
             <div class="col-12">
               <span class="number-section">04.</span><span class="title-section"> Contact</span>
             </div>
@@ -220,7 +220,7 @@ export default {
         }
     }
   }
-  .contact-box{
+  .fit-box{
     min-height: initial!important;
     height: fit-content;
   }
