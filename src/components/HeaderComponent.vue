@@ -1,6 +1,6 @@
 <template>
-  <header class="container-fluid">
-    <div class="row position-relative">
+  <header class="container-fluid position-fixed w-100" style="z-index: 1000;">
+    <div class="row position-relative" style="background-color: var(--bg-dark);">
       <!-- logo zone -->
       <div class="col-6 logo-container slide-in-bck-top">
           <img src="/img/SC_logo_white.svg" alt="logo image" class="ps-3 pt-3">

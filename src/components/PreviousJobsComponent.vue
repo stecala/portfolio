@@ -1,15 +1,15 @@
 <template>
-    <div class="col-12 mt-5 position-relative">
-        <div class="row">
-            
-            <div class="col-3 position-relative d-md-block">
-                <ul class="list-left" v-if="jobs.length > 0">
-                    <li v-for="(job, index) in jobs" :key="index" class="hover me-3" @click="setCurrentJob(job)" :class="job === selectedJob ? 'selected hover' : ''">
+    <div class="col-12 mt-3 position-relative">
+        <div class="row  mt-md-5">
+            <div class="col-12 col-md-3 position-relative d-md-block">
+                <ul class="list-left p-0" v-if="jobs.length > 0">
+                    <li v-for="(job, index) in jobs" :key="index" class="hover me-3 mt-0 mt-md-3 p-md-3" @click="setCurrentJob(job)" :class="job === selectedJob ? 'selected hover' : ''">
                         {{job}}
                     </li>
                 </ul>
             </div>
-            <div class="col-9">
+            <div class="divider my-3 d-md-none"></div>
+            <div class="col-md-9 col-12">
                 <span v-if="selectedJob == 'Iconsulting SpA'">
                     <p><span class="note"><b>Role:</b></span> Business Analytics Specialist</p>
                     <p>
@@ -83,5 +83,10 @@ export default {
     }
     .link-personalization{
         color: var(--light);
+    }
+    .divider{
+        width: 100%;
+        height: 1px;
+        background-color: var(--note);
     }
 </style>
