@@ -96,7 +96,7 @@
         </section>
         <section class="px-3 align-items-center flex-column position-relative" id="experience">
           <div class="row w-100 align-items-center" v-scrollanimation>
-            <div class="col-12 mt-5">
+            <div class="col-12">
               <span class="number-section">03.</span><span class="title-section">Work Experiences</span>
             </div>
             <PreviousJobsComponent />
@@ -185,7 +185,6 @@ export default {
     .small-container{
       width: 100%;
       height: 100%;
-      scroll-snap-type: y mandatory;
       overflow-y: scroll;
       scrollbar-width: none;
 
@@ -198,7 +197,6 @@ export default {
         justify-content: center;
         height: calc(100vh);
         width: 100%;
-        scroll-snap-align: start;
         
         &:nth-of-type(2){
           justify-content: start;
