@@ -48,6 +48,12 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+a {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 #app{

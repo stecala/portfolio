@@ -283,9 +283,9 @@ export default {
 
 
 .wrap-scroll{
-  position: absolute;
-  bottom: 1%;
-  left: 90%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   z-index: 5;
   .scroll-icon {
     display: block;
