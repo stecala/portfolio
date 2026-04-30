@@ -86,7 +86,7 @@
             </div>
           </div>
         </section>
-        <section class="px-3 mt-5 align-items-lg-center align-items-start" id="skill">
+        <section class="px-3 mt-5 align-items-start" id="skill">
           <div class="row align-items-center w-100 " v-scrollanimation>
             <div class="col-12 mt-5">
               <span class="number-section">02.</span><span class="title-section"> Skills</span>
@@ -94,7 +94,7 @@
             <SkillsComponent />
           </div>
         </section>
-        <section class="px-3 align-items-center flex-column position-relative" id="experience">
+        <section class="px-3 flex-column position-relative" id="experience">
           <div class="row w-100 align-items-center" v-scrollanimation>
             <div class="col-12">
               <span class="number-section">03.</span><span class="title-section">Work Experiences</span>
@@ -102,18 +102,18 @@
             <PreviousJobsComponent />
           </div>
         </section>
-        <section class="px-3 align-items-lg-center align-items-start" id="works">
+        <!-- <section class="px-3 align-items-start" id="works">
           <div class="row align-items-center" v-scrollanimation>
             <div class="col-12">
               <span class="number-section">04.</span><span class="title-section"> School Projects</span>
             </div>
             <WorksComponent />
           </div>
-        </section>
-        <section class="px-3 align-items-center flex-column position-relative" id="contact">
-          <div class="row align-items-center" v-scrollanimation>
+        </section> -->
+        <section class="px-3 flex-column position-relative justify-content-start my-5 contact-box" id="contact">
+          <div class="row " v-scrollanimation>
             <div class="col-12">
-              <span class="number-section">05.</span><span class="title-section"> Contact</span>
+              <span class="number-section">04.</span><span class="title-section"> Contact</span>
             </div>
             <ContactComponent />
           </div>
@@ -126,7 +126,7 @@
 
 <script>
 import SkillsComponent from './SkillsComponent.vue';
-import WorksComponent from './WorksComponents.vue';
+// import WorksComponent from './WorksComponents.vue';
 import ContactComponent from './ContactComponent.vue';
 import FooterComponent from './FooterComponent.vue';
 import PreviousJobsComponent from './PreviousJobsComponent.vue'
@@ -136,7 +136,7 @@ export default {
   },
   components :{
     SkillsComponent,
-    WorksComponent,
+    // WorksComponent,
     ContactComponent,
     FooterComponent,
     PreviousJobsComponent
@@ -219,6 +219,10 @@ export default {
           }
         }
     }
+  }
+  .contact-box{
+    min-height: initial!important;
+    height: fit-content;
   }
 
   .enter{
@@ -332,5 +336,6 @@ export default {
     75%  { transform: translateY(0.3em); }
     100% { transform: translateY(0); }
   }
+
 }
 </style>

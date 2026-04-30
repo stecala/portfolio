@@ -1,5 +1,8 @@
 <template>
     <div class="row">
+        <div class="doodle-container-lamp d-none d-lg-block">
+            <img src="/img/lamp.svg" alt="doodle lamp">
+        </div>
         <!-- MOBILEPHONE -->
         <div class="col-12 mt-3 d-md-none">
             <ul class="header-skills-mobile">
@@ -101,9 +104,7 @@
                     {{lang.lang}}
                 </li>
             </ul>
-            <div class="doodle-container-lamp d-md-none d-lg-block">
-                <img src="/img/lamp.svg" alt="doodle lamp">
-            </div>
+
         </div>
         <div class="col-9 d-none d-md-block">
             
@@ -327,7 +328,7 @@ export default {
                 {
                     id: 3,
                     lang: 'French',
-                    img: '',
+                    img: '/img/flags/france.svg',
                     description: 'In progress, currently able to handle a basic conversation (A1)'
                 }
             ]
